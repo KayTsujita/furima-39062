@@ -69,7 +69,7 @@
 | postcode           | string     | null: false                    |
 | prefecture_id      | integer    | null: false                    |
 | city               | string     | null: false                    |
-| city_2             | string     | null: false                    |
+| address            | string     | null: false                    |
 | building           | string     |                                |
 | phone              | string     | null: false                    |
 | purchase           | references | null: false, foreign_key: true |
