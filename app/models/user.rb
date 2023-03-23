@@ -6,11 +6,8 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
   validates :birth_date, presence: true
-  validates :last_name, :first_name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: ' is invalid. Input full-width characters'}
-  validates :last_name_kana, :first_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/, message: ' is invalid. Input full-width katakana characters'}
+  validates :last_name, :first_name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'is invalid. Input full-width characters'}
+  validates :last_name_kana, :first_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/, message: 'is invalid. Input full-width katakana characters'}
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'is invalid. Include both letters and numbers'}
   
-  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-  validates :password, format: { with: VALID_PASSWORD_REGEX, message: ' is invalid. Include both letters and numbers' }
-
-
 end
