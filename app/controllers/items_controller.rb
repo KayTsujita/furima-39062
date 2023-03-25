@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   def index
   end
-  
+
   def new
     @item = Item.new
   end
@@ -16,9 +16,9 @@ class ItemsController < ApplicationController
   end
 
   private
-  
-  def item_params
-    params.require(:item).permit(:item_name, :description, :category_id, :condition_id, :postage_id, :prefecture_id, :delivery_time_id, :price, :image, ).merge(user_id: current_user.id)
-  end
 
+  def item_params
+    params.require(:item).permit(:item_name, :description, :category_id, :condition_id, :postage_id, :prefecture_id,
+                                 :delivery_time_id, :price, :image).merge(user_id: current_user.id)
+  end
 end
