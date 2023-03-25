@@ -13,5 +13,5 @@ class User < ApplicationRecord
   validates :password,
             format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'is invalid. Include both letters and numbers' }
 
-  has_many :prototypes, dependent: :destroy
+  has_many :items, dependent: :destroy
 end
