@@ -7,9 +7,7 @@
     <h2 class="items-sell-title">商品の情報を入力</h2>
     <%= form_with model: @item, local: true do |f| %>
 
-    <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
     <%= render 'shared/error_messages', model: f.object %>
-    <%# //インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
 
     <%# 商品画像 %>
     <div class="img-upload">
@@ -52,12 +50,6 @@
         </div>
         <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
         
-        <%# <select name="order[address_id]" id="order_address_id"><option value="">選択してください</option>
-          <option value="1">1111111京都市田中</option>
-          <option value="2">2222222アメリカ佐藤</option>
-          <option value="3">3333333インド安井</option>
-        </select> %>
-
         <div class="weight-bold-text">
           商品の状態
           <span class="indispensable">必須</span>
