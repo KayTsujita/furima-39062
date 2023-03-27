@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   belongs_to :condition
   belongs_to :postage
   belongs_to :prefecture
-  belongs_to :delivery
+  belongs_to :delivery_time
 
   with_options presence: true do
     validates :image
