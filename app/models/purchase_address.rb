@@ -8,8 +8,7 @@ class PurchaseAddress
     validates :prefecture_id,     numericality: { other_than: 1, message: "can't be blank" }
     validates :city
     validates :address
-    validates :phone, format: { with: /\A\d{11}\z/, message: 'is invalid. Input only number' },
-                      length: { minimum: 11, too_short: 'is too short' }
+    validates :phone, format: { with: /\A\d{10,11}\z/, message: 'is invalid. Input only number' }
     validates :token
   end
 
