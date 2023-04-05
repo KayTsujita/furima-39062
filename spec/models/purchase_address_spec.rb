@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe PurchaseAddress, type: :model do
   before do
     user = FactoryBot.create(:user)
-    @purchaseaddress = FactoryBot.build(:purchase_address, user_id: user.id)
+    item = FactoryBot.create(:item)
+    @purchaseaddress = FactoryBot.build(:purchase_address, user_id: user.id, item_id: item.id)
+    sleep 0.1
   end
 
   describe '商品の購入' do
@@ -31,7 +33,7 @@ RSpec.describe PurchaseAddress, type: :model do
       it 'Itemが空では登録できないこと' do
         @purchaseaddress.item_id = nil
         @purchaseaddress.valid?
-        expect(@purchaseaddress.errors.full_messages).to include()
+        expect(@purchaseaddress.errors.full_messages).to include("Item can't be blank")
       end
       it '郵便番号が空だと購入ができない' do
         @purchaseaddress.postcode = ''
