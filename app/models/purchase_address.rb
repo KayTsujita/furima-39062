@@ -1,7 +1,7 @@
 class PurchaseAddress
 
   include ActiveModel::Model
-  attr_accessor :postcode, :prefecture_id, :city, :address, :building, :phone, :user_id, :item_id
+  attr_accessor :postcode, :prefecture_id, :city, :address, :building, :phone, :user_id, :item_id, :token
 
 
   with_options presence: true do
@@ -11,6 +11,7 @@ class PurchaseAddress
     validates :city              
     validates :address           
     validates :phone,             format: {with: /\A\d{11}\z/, message: "is invalid. Input only number"}, length: { minimum: 11, too_short: "is too short" }
+    validates :token
   end
 
   def save
